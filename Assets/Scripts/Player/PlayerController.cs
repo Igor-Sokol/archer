@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [FormerlySerializedAs("speed")] [SerializeField] private float moveSpeed;
     [SerializeField] private Joystick joystick;
 
+    public bool IsMoving { get; private set; }
+
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
@@ -21,6 +23,7 @@ public class PlayerController : MonoBehaviour
         float vertical = joystick.Axis.y * joystick.SpeedMultiplier;
 
         Vector3 movement = new Vector3(horizontal * moveSpeed, 0, vertical * moveSpeed);
+        IsMoving = movement.sqrMagnitude > 0f;
         _characterController.Move(movement * Time.deltaTime);
 
         if (Vector3.Angle(transform.forward, movement) > 0)

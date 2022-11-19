@@ -234,6 +234,7 @@ MonoBehaviour:
   gun: {fileID: 5177681526197518741}
   startHealth: 100
   shootingRadius: 8
+  playerController: {fileID: 5320605011065585238}
 --- !u!114 &6219605756350931182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,8 +247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9750c6ad7ca16d49bdeec9f677fe996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasContainer: {fileID: 0}
   prefab: {fileID: 0}
+  positionOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &6305138683180910157
 GameObject:
   m_ObjectHideFlags: 0

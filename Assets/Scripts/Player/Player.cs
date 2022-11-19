@@ -11,6 +11,7 @@ public class Player : MonoBehaviour, IHealth, ITakeDamge, IHeal
     [SerializeField] Gun gun;
     [SerializeField] private float startHealth;
     [SerializeField] private float shootingRadius;
+    [SerializeField] private PlayerController playerController;
 
     public Health CurrentHealth => _health;
     
@@ -25,7 +26,7 @@ public class Player : MonoBehaviour, IHealth, ITakeDamge, IHeal
 
     private void Update()
     {
-        if (gun.IsReadyShoot && TryFindEnemy(out Enemy enemy))
+        if (gun.IsReadyShoot && !playerController.IsMoving && TryFindEnemy(out Enemy enemy))
         {
             gun.Shoot(enemy.transform.position);
         }
